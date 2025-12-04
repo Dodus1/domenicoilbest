@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>comunque sono il migliore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;      /* slate-900 */
+      --fg: #e5e7eb;      /* gray-200 */
+      --muted: #94a3b8;   /* slate-400 */
+      --accent: #22d3ee;  /* cyan-400 */
+      --card: #0b1220;    /* darker panel */
+      --radius: 16px;
+      --shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: radial-gradient(1200px 800px at 50% 20%, #0b1220 0%, var(--bg) 60%);
+      color: var(--fg);
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+
+    .card {
+      width: min(980px, 92vw);
+      background: linear-gradient(180deg, #0d1b2a 0%, var(--card) 100%);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      backdrop-filter: saturate(120%) blur(8px);
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        width: 100%;
+        padding: 16px;
+      }
+    }
+
+
+    .headline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 4px 0 18px;
+      letter-spacing: 0.2px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px var(--accent);
+    }
+    .headline h1 {
+      font-size: clamp(22px, 3vw, 28px);
+      margin: 0;
+      font-weight: 600;
+    }
+
+    /* Wrapper 16:9 responsivo per il video */
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;               /* moderno; fallback sotto */
+      background: #0a0f1a;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    /* Fallback per browser senza aspect-ratio */
+    @supports not (aspect-ratio: 16 / 9) {
+      .video-wrap::before {
+        content: "";
+        display: block;
+        padding-top: 56.25%;               /* 16:9 */
+      }
+      .video-wrap > * {
+        position: absolute;
+        inset: 0;
+      }
+    }
+
+    .video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: #000;
+    }
+
+
+    .caption {
+      margin: 18px 4px 0;
+      color: var(--muted);
+      font-size: clamp(14px, 2.2vw, 16px);
+      line-height: 1.6;
+    }
+
+    /* Paragrafo sotto il video, ben leggibile */
+    .text {
+      margin-top: 22px;
+      padding: 18px 20px;
+      background: rgba(34, 51, 76, 0.25);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      color: #cbd5e1;                      /* slate-300 */
+      font-size: clamp(15px, 2.4vw, 17px);
+      line-height: 1.75;
+    }
+
+    /* Piccoli accenti tipografici */
+    .text strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+    .text a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(34, 211, 238, 0.45);
+    }
+    .text a:hover {
+      filter: brightness(1.15);
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="card" aria-label="Video centrale e descrizione">
+
+      <div class="video-wrap">
+        <!-- Sostituisci src con il tuo file/video o un .mp4 ospitato -->
+        <video class="video" src="we'll be brothers forever.mp4" controls playsinline poster="poster.jpg"></video>
+      </div>
+
+      <p class="caption"></p>
+
+      <p class="text">
+            Video commovente lo so.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
